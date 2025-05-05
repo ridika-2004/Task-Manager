@@ -1,5 +1,7 @@
 # Task-Manager
 
+It's a simple system to help myself learning the overview of python django.
+
 ## Project Structure
 ```
 taskmanager/
@@ -21,6 +23,11 @@ taskmanager/
 ```
 
 ## Start
+
+For this you need to have `python` installed. Then run this following command in cmd
+```
+pip install django
+```
 
 ### Start a project & app
 ```
