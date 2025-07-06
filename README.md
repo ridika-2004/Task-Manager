@@ -3,7 +3,7 @@
 It's a simple system to help myself learning the overview of python django.
 
 ## Project Structure
-```
+```console
 taskmanager/
 ├── manage.py
 ├── taskmanager/          # project settings
@@ -25,19 +25,19 @@ taskmanager/
 ## Start
 
 For this you need to have `python` installed. Then run this following command in cmd
-```
+```console
 pip install django
 ```
 
 ### Start a project & app
-```
+```console
 django-admin startproject taskmanager
 cd taskmanager
 python manage.py startapp tasks
 ```
 
 ### Register app in `settings.py`
-```
+```python
 INSTALLED_APPS = [
     ...,
     'tasks',
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 ```
 
 ### Create the Task model
-```
+```python
 # tasks/models.py
 from django.db import models
 
@@ -58,12 +58,12 @@ class Task(models.Model):
 ```
 
 ### Migrate database
-```
+```console
 python manage.py makemigrations
 python manage.py migrate
 ```
 ### Create Views
-```
+```python
 # tasks/views.py
 from django.shortcuts import render, redirect
 from .models import Task
@@ -87,7 +87,7 @@ def mark_done(request, task_id):
 ```
 ### URL Configuration
 In `taskmanager/urls.py`
-```
+```python
 from django.contrib import admin
 from django.urls import path, include
 
@@ -97,7 +97,7 @@ urlpatterns = [
 ]
 ```
 In `tasks/urls.py`
-```
+```python
 from django.urls import path
 from . import views
 
@@ -109,7 +109,7 @@ urlpatterns = [
 ```
 ### Templates
 `home.html`
-```
+```html
 <h1>Task List</h1>
 <a href="{% url 'add_task' %}">Add New Task</a>
 <ul>
@@ -121,7 +121,7 @@ urlpatterns = [
 </ul>
 ```
 `add_task.html`
-```
+```html
 <h1>Add Task</h1>
 <form method="post">
     {% csrf_token %}
@@ -130,7 +130,7 @@ urlpatterns = [
 </form>
 ```
 ## Run the Server
-```
+```console
 python manage.py runserver
 ```
 Visit `http://127.0.0.1:8000/`
